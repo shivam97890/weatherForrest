@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="inner-container">
+    <section>
+    <header>
+      <h1>
+        Weather forrecast
+      </h1>
+      <p>
+        &#x2715;
+      </p>
+    </header>
+      <div>
+        <h2>City</h2>
+        <select [(ngModel)]="citySelected">
+          <option [value]="city.cityName" *ngFor="let city of listOFCity">{{city.cityName}}</option>
+        </select>
+      </div>
+      <div class="wether-forrecast">
+        <div class="card" *ngFor="let data of selectedCityWeatherForrecast">
+          <h3>{{data.dayName}}</h3>
+          <h3>{{data.datetime|date:'MMM YYYY'}}</h3>
+          <img [src]="data.iconPath">
+          {{data.temp}}<span>&#8451;</span>
+        </div>
+      </div>
+      <button (click)="getData()">
+        Apply
+      </button>
+    </section>
+  </div>
+</div>
